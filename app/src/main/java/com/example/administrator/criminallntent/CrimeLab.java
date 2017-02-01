@@ -23,7 +23,7 @@ public class CrimeLab {
         for(int i=0;i<100;i++){
             Crime crime=new Crime();
             crime.setTitle("这是例子耶"+i+"号");
-            crime.setSolved((i%2==0));
+            crime.setSolved(i%2==0);
             mCrimes.add(crime);
 
         }
