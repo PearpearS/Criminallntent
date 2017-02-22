@@ -23,7 +23,9 @@ import java.util.List;
  * Created by Administrator on 2017/1/26.
  */
 public class CrimeListFragment extends Fragment {
+
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
+
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
     private boolean mSubtitleVisible;
@@ -54,6 +56,7 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
+            mAdapter.setCrimes(crimes);
             mAdapter.notifyDataSetChanged();
         }
         updateSubtitle();
@@ -85,6 +88,7 @@ public class CrimeListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         switch (item.getItemId()) {
             case R.id.menu_item_new_crime:
                 Crime crime = new Crime();
@@ -98,6 +102,7 @@ public class CrimeListFragment extends Fragment {
                 getActivity().invalidateOptionsMenu();
                 updateSubtitle();
                 return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -153,11 +158,15 @@ public class CrimeListFragment extends Fragment {
             startActivity(intent);
 
         }
+
     }
 
     private class CrimeAdapter extends RecyclerView.Adapter<CrimeHolder> {
         private List<Crime> mCrimes;
-
+        public void setCrimes(List<Crime>crimes)
+        {
+            mCrimes=crimes;
+        }
         public CrimeAdapter(List<Crime> crimes) {
             mCrimes = crimes;
         }
@@ -183,7 +192,29 @@ public class CrimeListFragment extends Fragment {
         }
 
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

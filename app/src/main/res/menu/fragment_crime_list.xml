@@ -13,4 +13,5 @@
         android:title="@string/show_subtitle"
         app:showAsAction="ifRoom"
         />
+
 </menu>
